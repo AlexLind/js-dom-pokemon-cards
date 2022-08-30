@@ -32,11 +32,12 @@ pokemonImage.src = data[i].sprites.other["official-artwork"].front_default
 
 const pokemonText = document.createElement('ul')
 pokemonText.setAttribute('class', 'card--text')
-for (let i = 0; i < 6; i++) {
+for (let j = 0; j < 6; j++) {
     const stats = document.createElement('li');
-    stats.innerText = data[i].stats[i].stat.name.toUpperCase() +': '+ data[i].stats[i].base_stat;
+    stats.innerText = data[i].stats[j].stat.name.toUpperCase() +': '+ data[i].stats[j].base_stat;
     pokemonText.append(stats)
 }
+
 
 cards.append(card);
 card.append(pokemonName, pokemonImage, pokemonText)
