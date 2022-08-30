@@ -7,29 +7,37 @@ document.body.append(cards)
 
 console.log(data[0].sprites.other["official-artwork"].front_default)
 
-// create card 
+for (let i = 0; i < data.length; i++ ) {
 
-const card = document.createElement('li')
+    
+    // create card 
+
+    const card = document.createElement('li')
 card.setAttribute('class', 'card')
 
 // create pokemon names using h2 
 
 const pokemonName = document.createElement('h2')
-pokemonName.setAttribute('class', 'card_title')
-pokemonName.innerText = data[0].name[0].toUpperCase() + data[0].name.slice(1);
+pokemonName.setAttribute('class', 'card--title')
+pokemonName.innerText = data[i].name[0].toUpperCase() + data[i].name.slice(1);
 
 // create img from data 
 
 const pokemonImage = document.createElement('img')
-pokemonImage.setAttribute('class', 'card_image')
+pokemonImage.setAttribute('class', 'card--img')
 pokemonImage.setAttribute('width', '256')
-pokemonImage.src = data[0].sprites.other["official-artwork"].front_default
+pokemonImage.src = data[i].sprites.other["official-artwork"].front_default
 
 // create pokemon texts 
 
 const pokemonText = document.createElement('ul')
-pokemonText.setAttribute('class', 'card_text')
-for (let i = 0; j < 6)
+pokemonText.setAttribute('class', 'card--text')
+for (let i = 0; i < 6; i++) {
+    const stats = document.createElement('li');
+    stats.innerText = data[i].stats[i].stat.name.toUpperCase() +': '+ data[i].stats[i].base_stat;
+    pokemonText.append(stats)
+}
 
 cards.append(card);
-card.append(pokemonName, pokemonImage)
+card.append(pokemonName, pokemonImage, pokemonText)
+}
