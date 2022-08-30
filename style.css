@@ -21,7 +21,8 @@ img {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
   font-weight: 800;
 }
@@ -70,4 +71,9 @@ h2 {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
   
+}
+
+.card--version_text {
+  columns: 2;
+  margin: 20px;
 }

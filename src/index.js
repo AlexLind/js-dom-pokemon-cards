@@ -3,6 +3,7 @@ console.log(data);
 const cards = document.querySelector('.cards');
 document.body.append(cards)
 
+console.log(Object.keys(data[0].sprites.versions))
 
 
 console.log(data[0].sprites.other["official-artwork"].front_default)
@@ -38,7 +39,23 @@ for (let j = 0; j < 6; j++) {
     pokemonText.append(stats)
 }
 
+// create pokemon version appearence
+
+const pokemonVersionHeader = document.createElement('h3')
+const pokemonVersionText = document.createElement('ul')
+pokemonVersionHeader.setAttribute('class', 'card--version_header')
+pokemonVersionText.setAttribute('class', 'card--version_text')
+pokemonVersionHeader.innerText = 'Appeared in:'
+for (let k = 0; k < data[i].game_indices.length; k++) {
+    const version = document.createElement('li');
+    version.innerText = data[i].game_indices[k].version.name
+    pokemonVersionText.append(version)
+    // Object.keys(data[i].sprites.versions[k]);
+}
+// console.log
+
+
 
 cards.append(card);
-card.append(pokemonName, pokemonImage, pokemonText)
+card.append(pokemonName, pokemonImage, pokemonText, pokemonVersionHeader, pokemonVersionText)
 }
